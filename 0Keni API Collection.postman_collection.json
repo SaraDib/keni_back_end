@@ -1,0 +1,2400 @@
+{
+	"info": {
+		"_postman_id": "373adeb7-9016-469b-bd5f-830ae137c0fc",
+		"name": "0Keni API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27860379"
+	},
+	"item": [
+		{
+			"name": "Entreprise",
+			"item": [
+				{
+					"name": "Get All Entreprises",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/entreprises",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises"
+							]
+						},
+						"description": "Get a list of all entreprises."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Entreprise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Nom",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "Logo",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/Screenshot 2025-04-24 051007.png"
+								},
+								{
+									"key": "Telephone",
+									"value": "111111111111",
+									"type": "text"
+								},
+								{
+									"key": "Whatsapp",
+									"value": "1111111111111",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Adresse",
+									"value": "main st",
+									"type": "text"
+								},
+								{
+									"key": "Facebook",
+									"value": "shsh",
+									"type": "text"
+								},
+								{
+									"key": "Instagram",
+									"value": "shshdh",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/entreprises",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises"
+							]
+						},
+						"description": "Create a new entreprise."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Entreprise by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/entreprises/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises",
+								"1"
+							]
+						},
+						"description": "Get a specific entreprise by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Entreprise LOGO by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/entreprises/1/logo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises",
+								"1",
+								"logo"
+							]
+						},
+						"description": "Get a specific entreprise by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Entreprise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Nom",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "Telephone",
+									"value": "111111111111",
+									"type": "text"
+								},
+								{
+									"key": "Whatsapp",
+									"value": "22222222",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Adresse",
+									"value": "main st",
+									"type": "text"
+								},
+								{
+									"key": "Facebook",
+									"value": "shsh",
+									"type": "text"
+								},
+								{
+									"key": "Instagram",
+									"value": "shshdh",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/entreprises/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises",
+								"1"
+							]
+						},
+						"description": "Update an existing entreprise."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Entreprise",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/entreprises/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"entreprises",
+								"1"
+							]
+						},
+						"description": "Delete an entreprise by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_Entreprise\": 1,\r\n    \"Nom\": \"Test User\",\r\n    \"Email\": \"test@example.com\",\r\n    \"Role\": \"user\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"test@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Get a list of all users."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						},
+						"description": "Get a specific user by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_Entreprise\": 1,\r\n    \"Nom\": \"First User\",\r\n    \"Email\": \"test@example.com\",\r\n    \"Role\": \"user\",\r\n    \"password\": \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						},
+						"description": "Update an existing user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						},
+						"description": "Delete a user by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Type_Photo",
+			"item": [
+				{
+					"name": "Get All TypePhotos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/type-photos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"type-photos"
+							]
+						},
+						"description": "Get a list of all type photos."
+					},
+					"response": []
+				},
+				{
+					"name": "Create TypePhoto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nom\": \"Your TypePhoto Name2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/type-photos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"type-photos"
+							]
+						},
+						"description": "Create a new type photo."
+					},
+					"response": []
+				},
+				{
+					"name": "Get TypePhoto by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/type-photos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"type-photos",
+								"1"
+							]
+						},
+						"description": "Get a specific type photo by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update TypePhoto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nom\": \"YourTypePhotoName\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/type-photos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"type-photos",
+								"1"
+							]
+						},
+						"description": "Update an existing type photo."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TypePhoto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/type-photos/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"type-photos",
+								"2"
+							]
+						},
+						"description": "Delete a type photo by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service",
+			"item": [
+				{
+					"name": "Get All Services",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services"
+							]
+						},
+						"description": "Get a list of all services."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": "service1",
+									"type": "text"
+								},
+								{
+									"key": "Descriptions",
+									"value": "service best ",
+									"type": "text"
+								},
+								{
+									"key": "Photos",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/Screenshot 2025-04-24 051007.png"
+								},
+								{
+									"key": "Etat",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services"
+							]
+						},
+						"description": "Create a new service."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"1"
+							]
+						},
+						"description": "Get a specific service by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service Photo by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/services/1/photo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"1",
+								"photo"
+							]
+						},
+						"description": "Get a specific service by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": "service1",
+									"type": "text"
+								},
+								{
+									"key": "Descriptions",
+									"value": "service best ",
+									"type": "text"
+								},
+								{
+									"key": "Photos",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "Etat",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"1"
+							]
+						},
+						"description": "Update an existing service."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"1"
+							]
+						},
+						"description": "Delete a service by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Row_Service",
+			"item": [
+				{
+					"name": "Get All RowServices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/row-services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"row-services"
+							]
+						},
+						"description": "Get a list of all row services."
+					},
+					"response": []
+				},
+				{
+					"name": "Create RowService",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Service\": 1,\n    \"ID_Type_Photo\": 1,\n    \"Text\": \"Sample text\",\n    \"Classement\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/row-services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"row-services"
+							]
+						},
+						"description": "Create a new row service."
+					},
+					"response": []
+				},
+				{
+					"name": "Get RowService by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/row-services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"row-services",
+								"1"
+							]
+						},
+						"description": "Get a specific row service by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update RowService",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Service\": 1,\n    \"ID_Type_Photo\": 1,\n    \"Text\": \"Sample text\",\n    \"Classement\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/row-services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"row-services",
+								"1"
+							]
+						},
+						"description": "Update an existing row service."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete RowService",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/row-services/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"row-services",
+								"1"
+							]
+						},
+						"description": "Delete a row service by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "Get All Photos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/photos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos"
+							]
+						},
+						"description": "Get a list of all photos."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Photo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Row",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Photo",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/Screenshot 2025-04-24 051007.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/photos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos"
+							]
+						},
+						"description": "Upload a new photo with metadata."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Photo by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/photos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos",
+								"1"
+							]
+						},
+						"description": "Get a specific photo by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Photo image by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/photos/1/image",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos",
+								"1",
+								"image"
+							]
+						},
+						"description": "Get a specific photo by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Photo image by ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Row",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Photo",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/Screenshot 2025-04-24 051007.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/photos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos",
+								"1"
+							]
+						},
+						"description": "Update a specific photo by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Photo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/photos/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"photos",
+								"1"
+							]
+						},
+						"description": "Delete a specific photo by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact_US",
+			"item": [
+				{
+					"name": "Get All Contact Messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/contact-us",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"contact-us"
+							]
+						},
+						"description": "Get a list of all contact messages."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contact Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Nom\": \"John Doe\",\n    \"Email\": \"john@example.com\",\n    \"Telephone\": \"+1234567890\",\n    \"Message\": \"This is a test message\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/contact-us",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"contact-us"
+							]
+						},
+						"description": "Create a new contact message."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact Message by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/contact-us/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"contact-us",
+								"1"
+							]
+						},
+						"description": "Get a specific contact message by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Nom\": \"John Doe\",\n    \"Email\": \"john@example.com\",\n    \"Telephone\": \"+1234567890\",\n    \"Message\": \"This is not a test message\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/contact-us/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"contact-us",
+								"1"
+							]
+						},
+						"description": "Create a new contact message."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact Message",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/contact-us/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"contact-us",
+								"1"
+							]
+						},
+						"description": "Delete a contact message by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FAQ",
+			"item": [
+				{
+					"name": "Get All FAQs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/faqs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"faqs"
+							]
+						},
+						"description": "Get a list of all FAQs."
+					},
+					"response": []
+				},
+				{
+					"name": "Create FAQ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Question\": \"Comment créer un compte?\",\n    \"Reponse\": \"Allez sur la page d'inscription et remplissez le formulaire.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/faqs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"faqs"
+							]
+						},
+						"description": "Create a new FAQ."
+					},
+					"response": []
+				},
+				{
+					"name": "Get FAQ by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/faqs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"faqs",
+								"1"
+							]
+						},
+						"description": "Get a specific FAQ by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update FAQ",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Question\": \"Comment créer un compte?\",\n    \"Reponse\": \"sur la page d'inscription et remplissez le formulaire.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/faqs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"faqs",
+								"1"
+							]
+						},
+						"description": "Update an existing FAQ."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete FAQ",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/faqs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"faqs",
+								"1"
+							]
+						},
+						"description": "Delete a FAQ by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipe",
+			"item": [
+				{
+					"name": "Get All equipes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/equipes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes"
+							]
+						},
+						"description": "Get a list of all team members."
+					},
+					"response": []
+				},
+				{
+					"name": "Create equipe Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": " John Doe",
+									"type": "text"
+								},
+								{
+									"key": "Image",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/Screenshot 2025-04-24 051007.png"
+								},
+								{
+									"key": "Profession",
+									"value": " Développeur",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": " Membre de l'équipe technique",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/equipes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes"
+							]
+						},
+						"description": "Create a new team member."
+					},
+					"response": []
+				},
+				{
+					"name": "Get equipe Member by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/equipes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes",
+								"1"
+							]
+						},
+						"description": "Get a specific team member by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get equipe Member photo by ID Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/equipes/1/image",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes",
+								"1",
+								"image"
+							]
+						},
+						"description": "Get a specific team member by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update equipe Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": " John Doe",
+									"type": "text"
+								},
+								{
+									"key": "Image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "Profession",
+									"value": " Développeur",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": " Membre de l'équipe technique",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/equipes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes",
+								"1"
+							]
+						},
+						"description": "Update an existing team member."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete equipe Member",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/equipes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"equipes",
+								"1"
+							]
+						},
+						"description": "Delete a team member by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Centre",
+			"item": [
+				{
+					"name": "Get All Centres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/centres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"centres"
+							]
+						},
+						"description": "Get a list of all centres."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Centre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Nom\": \"Centre de Test\",\n    \"Adresse\": \"123 Rue Test\",\n    \"Telephone\": \"0612345678\",\n    \"Email\": \"test@example.com\",\n    \"Handicapes\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/centres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"centres"
+							]
+						},
+						"description": "Create a new centre."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Centre by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/centres/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"centres",
+								"1"
+							]
+						},
+						"description": "Get a specific centre by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Centre",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID_Entreprise\": 1,\n    \"Nom\": \"Centre de Test\",\n    \"Adresse\": \"123 Rue Test\",\n    \"Telephone\": \"0612345678\",\n    \"Email\": \"test@example.com\",\n    \"Handicapes\": false\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/centres/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"centres",
+								"1"
+							]
+						},
+						"description": "Update an existing centre."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Centre",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/centres/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"centres",
+								"1"
+							]
+						},
+						"description": "Delete a centre by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Horaire",
+			"item": [
+				{
+					"name": "Get All Horaires",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/horaires",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"horaires"
+							]
+						},
+						"description": "Get a list of all horaires."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Horaire",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_Center\": 1,\r\n    \"Day_Start\": \"Monday\",\r\n    \"Day_End\": \"Friday\",\r\n    \"Time_Start\": \"08:00\",\r\n    \"Time_End\": \"17:00\",\r\n    \"isClosed\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/horaires",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"horaires"
+							]
+						},
+						"description": "Create a new horaire."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Horaire by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/horaires/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"horaires",
+								"1"
+							]
+						},
+						"description": "Get a specific horaire by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Horaire",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_Center\": 1,\r\n    \"Day_Start\": \"Monday\",\r\n    \"Day_End\": \"saturday\",\r\n    \"Time_Start\": \"08:00\",\r\n    \"Time_End\": \"17:00\",\r\n    \"isClosed\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/horaires/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"horaires",
+								"1"
+							]
+						},
+						"description": "Update an existing horaire."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Horaire",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/horaires/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"horaires",
+								"1"
+							]
+						},
+						"description": "Delete a horaire by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rendez_Vous",
+			"item": [
+				{
+					"name": "Get All RendezVous",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/rendez-vous",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"rendez-vous"
+							]
+						},
+						"description": "Get a list of all rendez-vous."
+					},
+					"response": []
+				},
+				{
+					"name": "Create RendezVous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID_Entreprise\": 1, \r\n  \"Nom\": \"Doe\",       \r\n  \"Prenom\": \"John\",\r\n  \"Date_Naissance\": \"1990-01-01\",\r\n  \"Tel\": \"+1234567890\",\r\n  \"Email\": \"john.doe@example.com\",\r\n  \"Faire\": \"Consultation\",\r\n  \"Type_recette\": \"Standard\",\r\n  \"nombre\": 2,\r\n  \"Ergotherapie\": \"Some notes\",\r\n  \"Physiotherapie\": \"Other notes\",\r\n  \"Remarque\": \"Additional comments here\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/rendez-vous",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"rendez-vous"
+							]
+						},
+						"description": "Create a new rendez-vous."
+					},
+					"response": []
+				},
+				{
+					"name": "Get RendezVous by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/rendez-vous/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"rendez-vous",
+								"1"
+							]
+						},
+						"description": "Get a specific rendez-vous by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update RendezVous",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID_Entreprise\": 1, \r\n  \"Nom\": \"Doe\",       \r\n  \"Prenom\": \"John\",\r\n  \"Date_Naissance\": \"1990-01-01\",\r\n  \"Tel\": \"+1234567890\",\r\n  \"Email\": \"john.doe@example.com\",\r\n  \"Faire\": \"Consultation\",\r\n  \"Type_recette\": \"Standard\",\r\n  \"nombre\": 22,\r\n  \"Ergotherapie\": \"Some notes\",\r\n  \"Physiotherapie\": \"Other notes\",\r\n  \"Remarque\": \"Additional comments here\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/rendez-vous/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"rendez-vous",
+								"1"
+							]
+						},
+						"description": "Update an existing rendez-vous."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete RendezVous",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/rendez-vous/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"rendez-vous",
+								"1"
+							]
+						},
+						"description": "Delete a rendez-vous by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offres_Emploi",
+			"item": [
+				{
+					"name": "Get All OffresEmploi",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi"
+							]
+						},
+						"description": "Get a list of all offres d'emploi."
+					},
+					"response": []
+				},
+				{
+					"name": "Create OffreEmploi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Salutation",
+									"value": " M.",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": " Dupont",
+									"type": "text"
+								},
+								{
+									"key": "Rue",
+									"value": " 123 Rue de Test",
+									"type": "text"
+								},
+								{
+									"key": "Code_Postal",
+									"value": " 75000",
+									"type": "text"
+								},
+								{
+									"key": "Ville",
+									"value": " fcb",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": " test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "Telephone",
+									"value": " 111111",
+									"type": "text"
+								},
+								{
+									"key": "Profession",
+									"value": " Développeur",
+									"type": "text"
+								},
+								{
+									"key": "lettre",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/4.png"
+								},
+								{
+									"key": "CV",
+									"type": "file",
+									"src": "/D:/Zikoo/bin/RKS/STJG/3.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi"
+							]
+						},
+						"description": "Create a new offre d'emploi."
+					},
+					"response": []
+				},
+				{
+					"name": "Get OffreEmploi by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi",
+								"1"
+							]
+						},
+						"description": "Get a specific offre d'emploi by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get OffreEmploi lettre by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi/1/lettre",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi",
+								"1",
+								"lettre"
+							]
+						},
+						"description": "Get a specific offre d'emploi by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get OffreEmploi cv by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi/1/cv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi",
+								"1",
+								"cv"
+							]
+						},
+						"description": "Get a specific offre d'emploi by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update OffreEmploi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID_Entreprise",
+									"value": " 1",
+									"type": "text"
+								},
+								{
+									"key": "Salutation",
+									"value": " M.",
+									"type": "text"
+								},
+								{
+									"key": "Nom",
+									"value": " Dupont",
+									"type": "text"
+								},
+								{
+									"key": "Rue",
+									"value": " 123 Rue de Test",
+									"type": "text"
+								},
+								{
+									"key": "Code_Postal",
+									"value": " 75000",
+									"type": "text"
+								},
+								{
+									"key": "Ville",
+									"value": " ars",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": " test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "Telephone",
+									"value": " 55555555555",
+									"type": "text"
+								},
+								{
+									"key": "Profession",
+									"value": " Développeur",
+									"type": "text"
+								},
+								{
+									"key": "lettre",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "CV",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi",
+								"1"
+							]
+						},
+						"description": "Update an existing offre d'emploi."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete OffreEmploi",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/offres-emploi/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"offres-emploi",
+								"1"
+							]
+						},
+						"description": "Delete an offre d'emploi by ID."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8va2VuaS13ZWIudGVzdC9hcGkvbG9naW4iLCJpYXQiOjE3NDY5MDY4MDUsImV4cCI6MTc0NjkxMDQwNSwibmJmIjoxNzQ2OTA2ODA1LCJqdGkiOiJPOHduTGhndklydWVYeXk5Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifQ.VUiF7CtJa7gwatnVooYrD6HMuP8HoUBpEgsP8hrfSjM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://keni-web.test",
+			"type": "string"
+		}
+	]
+}
