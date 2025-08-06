@@ -15,6 +15,10 @@ use App\Http\Controllers\RendezVousController;
 use App\Http\Controllers\RowServiceController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TypePhotoController;
+use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\AboutUsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,8 +30,7 @@ use App\Http\Controllers\TypePhotoController;
 |
 */
 
-
-
+// Public routes
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/services/{id}/photo', [ServiceController::class, 'showPhoto']);
@@ -42,11 +45,21 @@ Route::get('/faqs', [FAQController::class, 'index']);
 Route::post('/rendez-vous', [RendezVousController::class, 'store']);
 Route::post('/offres-emploi', [OffresEmploiController::class, 'store']);
 Route::get('/entreprises', [EntrepriseController::class, 'index']);
+Route::get('/experts', [ExpertController::class, 'index']);
+Route::get('/experts/{id}/image', [ExpertController::class, 'getExpertImage']);
+Route::get('/experts/{id}/video', [ExpertController::class, 'getExpertVideo']);
+Route::get('/updates', [UpdateController::class, 'index']);
+Route::get('/updates/{id}/image', [UpdateController::class, 'showImage']);
+Route::get('/about-us', [AboutUsController::class, 'index']);
 
+// Authenticated routes
 Route::middleware('auth:api')->group(function () {
+    // AboutUs routes
+    Route::post('/about-us', [AboutUsController::class, 'store']);
+    Route::put('/about-us/{id}', [AboutUsController::class, 'update']);
+    Route::delete('/about-us/{id}', [AboutUsController::class, 'destroy']);
 
     // Entreprise routes
-    
     Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
     Route::post('/entreprises', [EntrepriseController::class, 'store']);
     Route::post('/entreprises/{id}', [EntrepriseController::class, 'update']);
@@ -68,12 +81,9 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/type-photos/{id}', [TypePhotoController::class, 'destroy']);
 
     // Service routes
-
-    
     Route::post('/services', [ServiceController::class, 'store']);
     Route::post('/services/{id}', [ServiceController::class, 'update']);
     Route::delete('/services/{id}', [ServiceController::class, 'destroy']);
-
 
     // RowService routes
     Route::get('/row-services', [RowServiceController::class, 'index']);
@@ -102,14 +112,12 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/faqs/{id}', [FAQController::class, 'destroy']);
 
     // Equipe routes
-
     Route::get('/equipes/{id}', [EquipeController::class, 'show']);
     Route::post('/equipes', [EquipeController::class, 'store']);
     Route::post('/equipes/{id}', [EquipeController::class, 'update']);
     Route::delete('/equipes/{id}', [EquipeController::class, 'destroy']);
 
     // Centre routes
-    
     Route::get('/centres/{id}', [CentreController::class, 'show']);
     Route::post('/centres', [CentreController::class, 'store']);
     Route::put('/centres/{id}', [CentreController::class, 'update']);
@@ -136,4 +144,16 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/offres-emploi/{id}/lettre', [OffresEmploiController::class, 'showLettre']);
     Route::get('/offres-emploi/{id}/cv', [OffresEmploiController::class, 'showCV']);
 
+    // Experts routes 
+    Route::post('/experts', [ExpertController::class, 'store']);
+    Route::get('/experts/{id}', [ExpertController::class, 'show']);
+    Route::put('/experts/{id}', [ExpertController::class, 'update']);
+    Route::delete('/experts/{id}', [ExpertController::class, 'destroy']);
+    Route::post('/experts/{id}/toggle-status', [ExpertController::class, 'toggleStatus']);
+
+    // Updates routes
+    Route::post('/updates', [UpdateController::class, 'store']);
+    Route::get('/updates/{id}', [UpdateController::class, 'show']);
+    Route::put('/updates/{id}', [UpdateController::class, 'update']);
+    Route::delete('/updates/{id}', [UpdateController::class, 'destroy']);
 });
