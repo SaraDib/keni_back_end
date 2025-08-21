@@ -18,8 +18,8 @@ class ExpertController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'VideoURL' => 'nullable|file|mimes:mp4,webm|max:102400', // Max 100MB
-            'Image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'VideoURL' => 'nullable|file|mimes:mp4,webm', // Max 100MB
+            'Image' => 'image|mimes:jpeg,png,jpg,gif,webp',
             'TitleFR' => 'string|max:255',
             'TitleAR' => 'string|max:255',
             'DescriptionFR' => 'string',
