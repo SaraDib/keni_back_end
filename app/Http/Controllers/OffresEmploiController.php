@@ -199,4 +199,56 @@ class OffresEmploiController extends Controller
         
         return Storage::download($offresEmploi->CV);
     }
+
+    public function getStats()
+{
+    $currentYear = date('Y');
+
+    // Professions distinctes
+    $departments = \DB::table('offres_emploi')
+        ->select('Profession')
+        ->distinct()
+        ->pluck('Profession')
+        ->toArray();
+
+    // Récupérer les données groupées par mois et profession
+    $data = \DB::table('offres_emploi')
+        ->selectRaw("MONTH(created_at) as month, Profession as departement, COUNT(*) as count")
+        ->whereYear('created_at', $currentYear)
+        ->groupBy('month', 'departement')
+        ->orderBy('month')
+        ->get();
+
+    // Mois FR
+    $months = [
+        1 => 'Jan', 2 => 'Fév', 3 => 'Mar', 4 => 'Avr',
+        5 => 'Mai', 6 => 'Juin', 7 => 'Juil', 8 => 'Août',
+        9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Déc'
+    ];
+
+    $result = [];
+    foreach ($months as $num => $name) {
+        $monthData = $data->where('month', $num);
+        $departmentsCounts = [];
+        foreach ($departments as $dep) {
+            $departmentsCounts[$dep] = $monthData
+                ->where('departement', $dep)
+                ->sum('count');
+        }
+
+        $result[] = [
+            'month' => $name,
+            'count' => array_sum($departmentsCounts),
+            'details' => collect($departments)->map(function($dep) use ($departmentsCounts) {
+                return [
+                    'department' => $dep,
+                    'count' => $departmentsCounts[$dep]
+                ];
+            })->values()
+        ];
+    }
+
+    return response()->json($result);
+}
+
 }

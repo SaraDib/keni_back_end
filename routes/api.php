@@ -143,6 +143,7 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/offres-emploi/{id}', [OffresEmploiController::class, 'destroy']);
     Route::get('/offres-emploi/{id}/lettre', [OffresEmploiController::class, 'showLettre']);
     Route::get('/offres-emploi/{id}/cv', [OffresEmploiController::class, 'showCV']);
+    Route::get('/candidatures/stats', [OffresEmploiController::class, 'getStats']);
 
     // Experts routes 
     Route::post('/experts', [ExpertController::class, 'store']);
@@ -150,7 +151,7 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/experts/{id}', [ExpertController::class, 'update']);
     Route::delete('/experts/{id}', [ExpertController::class, 'destroy']);
     Route::post('/experts/{id}/toggle-status', [ExpertController::class, 'toggleStatus']);
-
+    
     // Updates routes
     Route::post('/updates', [UpdateController::class, 'store']);
     Route::get('/updates/{id}', [UpdateController::class, 'show']);
