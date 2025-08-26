@@ -155,6 +155,6 @@ Route::middleware('auth:api')->group(function () {
     // Updates routes
     Route::post('/updates', [UpdateController::class, 'store']);
     Route::get('/updates/{id}', [UpdateController::class, 'show']);
-    Route::put('/updates/{id}', [UpdateController::class, 'update']);
+    Route::post('/updates/{id}', [UpdateController::class, 'update']);
     Route::delete('/updates/{id}', [UpdateController::class, 'destroy']);
 });
