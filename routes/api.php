@@ -18,7 +18,7 @@ use App\Http\Controllers\TypePhotoController;
 use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\AboutUsController;
-
+use App\Http\Controllers\VisitController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -51,7 +51,7 @@ Route::get('/experts/{id}/video', [ExpertController::class, 'getExpertVideo']);
 Route::get('/updates', [UpdateController::class, 'index']);
 Route::get('/updates/{id}/image', [UpdateController::class, 'showImage']);
 Route::get('/about-us', [AboutUsController::class, 'index']);
-
+Route::post('/track-visit', [VisitController::class, 'track']);
 // Authenticated routes
 Route::middleware('auth:api')->group(function () {
     // AboutUs routes
@@ -157,4 +157,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/updates/{id}', [UpdateController::class, 'show']);
     Route::post('/updates/{id}', [UpdateController::class, 'update']);
     Route::delete('/updates/{id}', [UpdateController::class, 'destroy']);
+
+    //trafic routes 
+    
+    Route::get('/visits-summary', [VisitController::class, 'summary']);
+    Route::get('/visits-monthly', [VisitController::class, 'monthly']);
 });
