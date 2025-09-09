@@ -162,4 +162,6 @@ Route::middleware('auth:api')->group(function () {
     
     Route::get('/visits-summary', [VisitController::class, 'summary']);
     Route::get('/visits-monthly', [VisitController::class, 'monthly']);
+    Route::get('/pays-data', [VisitController::class, 'getPaysData']);
+    
 });

@@ -63,4 +63,15 @@ class VisitController extends Controller
 
     return response()->json($data);
     }
+
+    public function getPaysData()
+{
+    $data = \DB::table('visits')
+        ->select('pays', \DB::raw('COUNT(*) as total'))
+        ->groupBy('pays')
+        ->get();
+
+    return response()->json($data);
+}
+
 }
