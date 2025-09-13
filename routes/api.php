@@ -19,6 +19,10 @@ use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\VisitController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TypeRecetteController;
+use App\Http\Controllers\PhysiotherapieController;
+use App\Http\Controllers\SliderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -52,6 +56,11 @@ Route::get('/updates', [UpdateController::class, 'index']);
 Route::get('/updates/{id}/image', [UpdateController::class, 'showImage']);
 Route::get('/about-us', [AboutUsController::class, 'index']);
 Route::post('/track-visit', [VisitController::class, 'track']);
+Route::get('/slider', [SliderController::class, 'index']);
+
+Route::get('/types-recette', [TypeRecetteController::class, 'index']);   // afficher tous
+Route::get('/physiotherapie', [PhysiotherapieController::class, 'index']);  
+ Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']); // afficher tous
 // Authenticated routes
 Route::middleware('auth:api')->group(function () {
     // AboutUs routes
@@ -60,7 +69,7 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/about-us/{id}', [AboutUsController::class, 'destroy']);
 
     // Entreprise routes
-    Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
+    //Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
     Route::post('/entreprises', [EntrepriseController::class, 'store']);
     Route::post('/entreprises/{id}', [EntrepriseController::class, 'update']);
     Route::delete('/entreprises/{id}', [EntrepriseController::class, 'destroy']);
@@ -163,5 +172,30 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/visits-summary', [VisitController::class, 'summary']);
     Route::get('/visits-monthly', [VisitController::class, 'monthly']);
     Route::get('/pays-data', [VisitController::class, 'getPaysData']);
+
+    //Roles routes
+    Route::get('/roles', [RoleController::class, 'index']);
+    Route::post('/roles', [RoleController::class, 'store']);
+    Route::put('/roles/{role}', [RoleController::class, 'update']);
+    Route::delete('/roles/{role}', [RoleController::class, 'destroy']);
+
+    // Routes TypesRecette
+    //Route::get('/types-recette', [TypeRecetteController::class, 'index']);   // afficher tous
+    Route::post('/types-recette', [TypeRecetteController::class, 'store']);  // ajouter
+    Route::get('/types-recette/{id}', [TypeRecetteController::class, 'show']); // afficher un seul
+    Route::put('/types-recette/{id}', [TypeRecetteController::class, 'update']); // modifier
+    Route::delete('/types-recette/{id}', [TypeRecetteController::class, 'destroy']); // supprimer
+
+    // Routes Physiotherapie
+    //Route::get('/physiotherapie', [PhysiotherapieController::class, 'index']);   // afficher tous
+    Route::post('/physiotherapie', [PhysiotherapieController::class, 'store']);  // ajouter
+    Route::get('/physiotherapie/{id}', [PhysiotherapieController::class, 'show']); // afficher un seul
+    Route::put('/physiotherapie/{id}', [PhysiotherapieController::class, 'update']); // modifier
+    Route::delete('/physiotherapie/{id}', [PhysiotherapieController::class, 'destroy']); // supprimer
+
+    //Routes slider
+
+    Route::post('/slider', [SliderController::class, 'store']);
+    Route::delete('/slider/{id}', [SliderController::class, 'destroy']);
     
 });
