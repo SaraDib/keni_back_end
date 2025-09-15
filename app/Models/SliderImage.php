@@ -12,6 +12,6 @@ class SliderImage extends Model
     protected $table = 'slider_images'; // ou le nom de ta table
     protected $primaryKey = 'ID_Image'; // si tu as utilisé ID_Image
     protected $fillable = [
-        'Path'
+        'Path','nom_page'
     ];
 }

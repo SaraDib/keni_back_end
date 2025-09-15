@@ -56,6 +56,7 @@ Route::get('/updates', [UpdateController::class, 'index']);
 Route::get('/updates/{id}/image', [UpdateController::class, 'showImage']);
 Route::get('/about-us', [AboutUsController::class, 'index']);
 Route::post('/track-visit', [VisitController::class, 'track']);
+
 Route::get('/slider', [SliderController::class, 'index']);
 
 Route::get('/types-recette', [TypeRecetteController::class, 'index']);   // afficher tous
