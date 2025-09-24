@@ -23,6 +23,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TypeRecetteController;
 use App\Http\Controllers\PhysiotherapieController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\AvantagesSociauxController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -58,6 +59,9 @@ Route::get('/about-us', [AboutUsController::class, 'index']);
 Route::post('/track-visit', [VisitController::class, 'track']);
 
 Route::get('/slider', [SliderController::class, 'index']);
+
+// Avantages sociaux routes (public)
+Route::get('/avantages-sociaux', [AvantagesSociauxController::class, 'index']);
 
 Route::get('/types-recette', [TypeRecetteController::class, 'index']);   // afficher tous
 Route::get('/physiotherapie', [PhysiotherapieController::class, 'index']);  
@@ -198,5 +202,11 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/slider', [SliderController::class, 'store']);
     Route::delete('/slider/{id}', [SliderController::class, 'destroy']);
+
+    // Avantages sociaux routes (admin)
+    Route::get('/avantages-sociaux/{id}', [AvantagesSociauxController::class, 'show']);
+    Route::post('/avantages-sociaux', [AvantagesSociauxController::class, 'store']);
+    Route::put('/avantages-sociaux/{id}', [AvantagesSociauxController::class, 'update']);
+    Route::delete('/avantages-sociaux/{id}', [AvantagesSociauxController::class, 'destroy']);
     
 });
