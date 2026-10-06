@@ -19,7 +19,9 @@ class Entreprise extends Model
         'Email',
         'Adresse',
         'Facebook',
-        'Instagram'
+        'Instagram',
+        'CouleurBackground',
+        'ImageBackground'
     ];
 
     public function users()

@@ -29,13 +29,15 @@ class EntrepriseController extends Controller
             // Define validation rules
             $rules = [
                 'Nom' => 'required|string|unique:entreprises,Nom',
-                'Logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'Logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
                 'Telephone' => 'nullable|string',
                 'Whatsapp' => 'nullable|string',
                 'Email' => 'nullable|email',
                 'Adresse' => 'nullable|string',
                 'Facebook' => 'nullable|string',
                 'Instagram' => 'nullable|string',
+                'CouleurBackground' => 'nullable|string',
+                'ImageBackground' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             ];
             // Custom error messages
             $customMessages = [
@@ -43,7 +45,7 @@ class EntrepriseController extends Controller
                 'Nom.unique' => 'Ce nom est déjà enregistré.',
                 'Logo.image' => 'Le logo doit être une image.',
                 'Logo.mimes' => 'Le logo doit être de type jpeg, png, jpg, gif ou svg.',
-                'Logo.max' => 'Le logo ne doit pas dépasser 2048 Ko.',
+                'Logo.max' => 'Le logo ne doit pas dépasser 10 Mo.',
                 'Email.email' => 'L\'adresse email n\'est pas valide.',
             ];
             // Validate the request
@@ -61,6 +63,14 @@ if ($request->hasFile('Logo')) {
     // Stocker dans storage/app/public/entreprise_logos
     $path = $file->storeAs('entreprise_logos', $fileName, 'public');
     $validatedData['Logo'] = $path;
+}
+
+// Handle file upload for ImageBackground
+if ($request->hasFile('ImageBackground')) {
+    $file = $request->file('ImageBackground');
+    $fileName = now()->format('Y-m-d_His') . '_bg_' . $file->getClientOriginalName();
+    $path = $file->storeAs('entreprise_backgrounds', $fileName, 'public');
+    $validatedData['ImageBackground'] = $path;
 }
 
             // Create a new entreprise
@@ -94,13 +104,15 @@ if ($request->hasFile('Logo')) {
         // Define validation rules
         $rules = [
             'Nom' => 'sometimes|required|string|unique:entreprises,Nom,' . $id . ',ID_Entreprise',
-            'Logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'Logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'Telephone' => 'nullable|string',
             'Whatsapp' => 'nullable|string',
             'Email' => 'nullable|email',
             'Adresse' => 'nullable|string',
             'Facebook' => 'nullable|string',
             'Instagram' => 'nullable|string',
+            'CouleurBackground' => 'nullable|string',
+            'ImageBackground' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ];
 
         // Custom error messages
@@ -109,7 +121,7 @@ if ($request->hasFile('Logo')) {
             'Nom.unique' => 'Ce nom est déjà enregistré.',
             'Logo.image' => 'Le logo doit être une image.',
             'Logo.mimes' => 'Le logo doit être de type jpeg, png, jpg, gif ou svg.',
-            'Logo.max' => 'Le logo ne doit pas dépasser 2048 Ko.',
+            'Logo.max' => 'Le logo ne doit pas dépasser 10 Mo.',
             'Email.email' => 'L\'adresse email n\'est pas valide.',
         ];
 
@@ -134,6 +146,20 @@ if ($request->hasFile('Logo')) {
             $fileName = now()->format('Y-m-d_His') . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('entreprise_logos', $fileName, 'public'); // disque public
             $validatedData['Logo'] = $path;
+        }
+
+        // Handle file upload for ImageBackground
+        if ($request->hasFile('ImageBackground')) {
+            // Delete the old background if it exists
+            if ($entreprise->ImageBackground && Storage::disk('public')->exists($entreprise->ImageBackground)) {
+                Storage::disk('public')->delete($entreprise->ImageBackground);
+            }
+
+            // Save new background
+            $file = $request->file('ImageBackground');
+            $fileName = now()->format('Y-m-d_His') . '_bg_' . $file->getClientOriginalName();
+            $path = $file->storeAs('entreprise_backgrounds', $fileName, 'public');
+            $validatedData['ImageBackground'] = $path;
         }
 
         // Update the entreprise
