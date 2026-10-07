@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // Appeler le seeder pour les packs de physiothérapie
         $this->call([
+            EntrepriseSeeder::class,
             PhysiotherapieSeeder::class,
             EquipeSeeder::class,
             AvantagesSociauxSeeder::class,
