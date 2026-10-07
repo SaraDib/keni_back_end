@@ -36,7 +36,6 @@ use App\Http\Controllers\AvantagesSociauxController;
 */
 
 // Public routes
-Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/services/{id}/photo', [ServiceController::class, 'showPhoto']);
 Route::get('/services', [ServiceController::class, 'index']);
@@ -81,6 +80,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/entreprises/{id}/logo', [EntrepriseController::class, 'showLogo']);
 
     // User routes
+    // La création de comptes est réservée aux administrateurs connectés
+    // (page Utilisateurs) : elle n'est plus accessible publiquement.
+    Route::post('/register', [UserController::class, 'register']);
     Route::get('/logout', [UserController::class, 'logout']);
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/{id}', [UserController::class, 'show']);
